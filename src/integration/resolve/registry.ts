@@ -123,7 +123,10 @@ export function resolveOverride(
 		const packageDir = normalisePath(target.packageDir);
 		if (!normalised.startsWith(`${packageDir}/`)) continue;
 
-		const rel = relative(target.packageDir, absolutePath);
+		// `normalisePath` is required: `relative()` returns backslash-separated
+		// paths on Windows, and BARREL_RE is written against forward slashes, so
+		// an unnormalised `atoms\index.ts` would slip past the barrel guard.
+		const rel = normalisePath(relative(target.packageDir, absolutePath));
 		// `index.ts` barrels stay owned by the package: overriding them would
 		// break the named-export contract the theme relies on.
 		if (BARREL_RE.test(rel)) continue;
@@ -172,7 +175,9 @@ export function buildOverrideRegistry(
 		}
 
 		for (const abs of walkFiles(target.packageDir)) {
-			const rel = relative(target.packageDir, abs);
+			// Normalised for the same reason as in `resolveOverride`: on Windows
+			// `relative()` uses backslashes and would defeat BARREL_RE.
+			const rel = normalisePath(relative(target.packageDir, abs));
 			// `index.ts` barrels stay owned by the package: overriding one would
 			// break the named-export contract the theme relies on. Matched at any
 			// depth, not just the directory root.
