@@ -12,7 +12,7 @@ import { withUserConfig } from "../utils/config-overlay.ts";
 export const siteConfig: SiteConfig = withUserConfig("site", {
 	site: "https://shirone.mysqil.com/",
 	base: "/",
-	title: "Shirone",
+	title: "Ch`en的博客",
 	subtitle: "A Material 3 anime blog",
 	// 电脑端顶栏标题与导航内容区域："left" 左对齐，"center" 居中。
 	topAppBar: {
@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 	// IANA time zone for precise post and moment timestamps. It is independent of lang.
 	timeZone: "Asia/Shanghai",
 	themeColor: {
-		hue: 315, // Default hue 0-360. 站点设计默认粉紫（偏二次元）；262 紫 / 345 粉 也可选
+		hue: 230, // Default hue 0-360. 主题原始默认粉紫 315（偏二次元）；262 紫 / 345 粉 也可选
 		fixed: false, // Hide the theme color picker for visitors
 		// Dynamic Material 3 palette style (TonalSpot/Vibrant/Content/Expressive/Rainbow/FruitSalad/Monochrome/Neutral/Fidelity)
 		style: "tonalSpot",
@@ -70,7 +70,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 		homeText: {
 			// 仅在首页 Banner 中显示，标题与副标题会上下居中排列。
 			enable: true,
-			title: "Shirone",
+			title: "I`m Celestial Faint Bereft",
 			subtitle: [
 				"特別なことはないけど、君がいると十分です",
 				"今でもあなたは私の光",
