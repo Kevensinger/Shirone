@@ -68,6 +68,12 @@ export const musicConfig: MusicConfig = withUserConfig("music", {
 		// 进入视口时预取歌单元数据（仅元信息，不预取音频流）：
 		// "metadata"（取）| "none"（默认，不取；交互后才请求，卡片显示「尚未请求」占位）
 		preload: "none",
+		// 回退 API：主 api 请求失败、返回非 JSON、或返回空歌单时按顺序尝试下一个。
+		// 公开的 Meting 实例时常失效（实测 api.moeyao.cn 会返回 HTML 报错页），
+		// 有自建实例的话填在这里最稳。占位符与 api 相同。
+		// fallbackApis: [
+		// 	"https://你的-meting-实例/meting/?server=:server&type=:type&id=:id&r=:r",
+		// ],
 	},
 	defaultVolume: 0.7,
 	defaultMode: "sequence",
@@ -114,8 +120,20 @@ function normalizeTrack(
 		track.duration > 0
 			? track.duration
 			: undefined;
+	// 本地歌词文件：允许 `/assets/music/lrc/xxx.lrc`（public 下）或绝对 http(s) 地址。
+	const lrcUrl = track.lrcUrl
+		? (normalizeMediaSource(track.lrcUrl) ?? undefined)
+		: undefined;
 
-	return Object.freeze({ id, title, source, artist, cover, duration });
+	return Object.freeze({
+		id,
+		title,
+		source,
+		artist,
+		cover,
+		duration,
+		...(lrcUrl ? { lrcUrl } : {}),
+	});
 }
 
 export function clampMusicVolume(value: number, fallback = 0.7): number {

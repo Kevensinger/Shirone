@@ -32,6 +32,14 @@ export interface TrackDescriptor {
 	readonly coverWidth?: number;
 	readonly coverHeight?: number;
 	readonly duration?: number;
+	/**
+	 * 歌词来源。**是 LRC 文本的地址，不是歌词正文**——Meting 的 `lrc` 字段返回的就是
+	 * 一个歌词接口 URL，正文要再请求一次才能拿到。因此这里只存地址，由播放器在
+	 * 曲目真正开始播放时按需懒加载，避免为整个歌单发 N 次请求。
+	 *
+	 * 本地曲目同样适用：填 `/assets/music/lrc/<name>.lrc` 即可。
+	 */
+	readonly lrcUrl?: string;
 }
 
 export type MetingPreloadMode = "metadata" | "none";
@@ -52,6 +60,14 @@ export interface MetingMusicConfig {
 	 * - "none"（默认）：不预取，等用户播放/展开播放列表时才请求（卡片显示「尚未请求」占位）。
 	 */
 	readonly preload?: MetingPreloadMode;
+	/**
+	 * 回退 API 列表，与 `api` 使用同一套占位符（`:server` / `:type` / `:id` / `:r`）。
+	 *
+	 * 公开的 Meting 实例经常失效或返回非 JSON 内容（实测 `api.moeyao.cn` 就会返回
+	 * HTML 报错页）。主 `api` 请求失败、返回非数组、或返回空歌单时，会按顺序尝试这里
+	 * 的地址，第一个拿到可用曲目的实例胜出。
+	 */
+	readonly fallbackApis?: readonly string[];
 }
 
 export interface MusicConfig {
