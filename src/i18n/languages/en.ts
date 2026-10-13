@@ -268,6 +268,8 @@ export const en: Translation = {
 	[Key.systemMode]: "System",
 
 	[Key.more]: "More",
+	[Key.navGroupPosts]: "Posts",
+	[Key.navGroupMine]: "Mine",
 	[Key.categoriesViewAll]: "View all categories",
 	[Key.paginationPrev]: "Previous page",
 	[Key.paginationNext]: "Next page",

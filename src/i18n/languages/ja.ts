@@ -267,6 +267,8 @@ export const ja: Translation = {
 	[Key.systemMode]: "システム",
 
 	[Key.more]: "もっと",
+	[Key.navGroupPosts]: "記事",
+	[Key.navGroupMine]: "マイページ",
 	[Key.categoriesViewAll]: "すべてのカテゴリを見る",
 	[Key.paginationPrev]: "前のページ",
 	[Key.paginationNext]: "次のページ",

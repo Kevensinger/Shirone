@@ -270,6 +270,8 @@ export const tr: Translation = {
 	[Key.systemMode]: "Sistem",
 
 	[Key.more]: "Daha Fazla",
+	[Key.navGroupPosts]: "Yazılar",
+	[Key.navGroupMine]: "Benim",
 	[Key.categoriesViewAll]: "Tüm kategorileri gör",
 	[Key.paginationPrev]: "Önceki sayfa",
 	[Key.paginationNext]: "Sonraki sayfa",

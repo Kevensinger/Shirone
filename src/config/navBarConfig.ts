@@ -138,31 +138,32 @@ export const LinkPresets: Record<string, NavBarLink> = {
 };
 
 const defaultNavBarConfig: NavBarConfig = {
+	// 顶层顺序 = 数组顺序。带 `children` 的条目在顶栏渲染为下拉分组，
+	// 同时驱动手机抽屉；分组标题用 i18n 词条，不要硬编码文案。
+	// 未在此引用的预设（Friends / Compass / Timeline / Projects / Devices /
+	// Skills / Series / GitHub 等）仍然登记在 LinkPresets 里，随时可以加回来。
 	links: [
 		LinkPresets.Home,
-		LinkPresets.Archive,
-		LinkPresets.Friends,
-		LinkPresets.Moments,
-		LinkPresets.Anime,
-		LinkPresets.Compass,
-		LinkPresets.Albums,
 		{
-			name: i18n(I18nKey.more),
-			icon: "material-symbols:apps-rounded",
+			name: i18n(I18nKey.navGroupPosts),
+			icon: "material-symbols:article-outline-rounded",
 			children: [
-				LinkPresets.Timeline,
-				LinkPresets.Projects,
-				LinkPresets.Devices,
-				LinkPresets.Games,
-				LinkPresets.Skills,
-				// 分类/标签入口不进导航菜单（避免菜单项过多），预设已登记指向独立页面，
-				// 需要时取消注释即可
-				// LinkPresets.Categories,
-				// LinkPresets.Tags,
-				LinkPresets.About,
-				LinkPresets.GitHub,
+				LinkPresets.Archive,
+				LinkPresets.Categories,
+				LinkPresets.Tags,
 			],
 		},
+		LinkPresets.Albums,
+		{
+			name: i18n(I18nKey.navGroupMine),
+			icon: "material-symbols:person-outline-rounded",
+			children: [
+				LinkPresets.Moments,
+				LinkPresets.Anime,
+				LinkPresets.Games,
+			],
+		},
+		LinkPresets.About,
 	],
 };
 

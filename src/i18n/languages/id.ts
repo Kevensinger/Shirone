@@ -272,6 +272,8 @@ export const id: Translation = {
 	[Key.systemMode]: "Sistem",
 
 	[Key.more]: "Lainnya",
+	[Key.navGroupPosts]: "Artikel",
+	[Key.navGroupMine]: "Milik Saya",
 	[Key.categoriesViewAll]: "Lihat semua kategori",
 	[Key.paginationPrev]: "Halaman sebelumnya",
 	[Key.paginationNext]: "Halaman berikutnya",

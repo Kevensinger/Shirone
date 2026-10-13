@@ -259,6 +259,8 @@ export const zh_TW: Translation = {
 	[Key.systemMode]: "跟隨系統",
 
 	[Key.more]: "更多",
+	[Key.navGroupPosts]: "文章",
+	[Key.navGroupMine]: "我的",
 	[Key.categoriesViewAll]: "查看全部分類",
 	[Key.paginationPrev]: "上一頁",
 	[Key.paginationNext]: "下一頁",

@@ -282,6 +282,10 @@ enum I18nKey {
 	reset = "reset",
 
 	more = "more",
+	/** 导航栏下拉分组标题：文章集合（归档 / 分类 / 标签） */
+	navGroupPosts = "navGroupPosts",
+	/** 导航栏下拉分组标题：个人内容（动态 / 番剧 / 游戏） */
+	navGroupMine = "navGroupMine",
 	categoriesViewAll = "categoriesViewAll",
 	tagsViewAll = "tagsViewAll",
 

@@ -270,6 +270,8 @@ export const es: Translation = {
 	[Key.systemMode]: "Sistema",
 
 	[Key.more]: "Más",
+	[Key.navGroupPosts]: "Artículos",
+	[Key.navGroupMine]: "Mío",
 	[Key.categoriesViewAll]: "Ver todas las categorías",
 	[Key.paginationPrev]: "Página anterior",
 	[Key.paginationNext]: "Página siguiente",
